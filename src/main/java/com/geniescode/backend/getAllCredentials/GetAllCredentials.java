@@ -8,7 +8,6 @@ import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +22,7 @@ public class GetAllCredentials implements Supplier<List<LogIn>> {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-        return new Gson().
-                fromJson(json, new TypeToken<ArrayList<LogIn>>() {
+        return new Gson().fromJson(json, new TypeToken<ArrayList<LogIn>>() {
         }.getType());
     }
 }
