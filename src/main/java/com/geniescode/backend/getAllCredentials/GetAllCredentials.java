@@ -16,15 +16,15 @@ import java.util.function.Supplier;
 
 public class GetAllCredentials implements Supplier<List<LogIn>> {
     public List<LogIn> get() {
-        String json;
+        String json = null;
         try {
             InputStream inputStream = Resources.getResource("credentials.json").openStream();
             json = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
-        Type listType = new TypeToken<ArrayList<LogIn>>() {
-        }.getType();
-        return new Gson().fromJson(json, listType);
+        return new Gson().
+                fromJson(json, new TypeToken<ArrayList<LogIn>>() {
+        }.getType());
     }
 }
