@@ -1,4 +1,4 @@
-# logIn-and-registration-interface
+# logIn-interface-java-swings
 
 ## Features of the project
 * Easy usability
