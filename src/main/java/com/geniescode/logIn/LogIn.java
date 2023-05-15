@@ -1,6 +1,10 @@
 package com.geniescode.logIn;
 
-import com.geniescode.components.*;
+import com.geniescode.components.Button;
+import com.geniescode.components.ClosingBar;
+import com.geniescode.components.Panel;
+import com.geniescode.components.PasswordField;
+import com.geniescode.components.TextField;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JFrame;
@@ -31,12 +35,6 @@ public class LogIn extends JFrame {
         username = new TextField("Username:");
         password = new PasswordField("Password:");
         Button signIn = new Button();
-        Button signUp = new Button();
-
-        signUp.setText("Registration");
-        signUp.setConstraints(green, 40);
-        signUp.setFont(signUp.getFont().deriveFont(Font.PLAIN, 18));
-        signUp.addActionListener(this::registrationAction);
 
         signIn.setText("LogIn");
         signIn.setConstraints(green, 40);
@@ -56,9 +54,8 @@ public class LogIn extends JFrame {
         background.add(closeButton, "width 100%");
         background.add(tittle, "width 100%, gap bottom 30px");
         background.add(username, "height 45px, width 60%, gap left 20%, gap bottom 5px");
-        background.add(password, "height 45px, width 60%, gap left 20%, gap bottom 20px");
+        background.add(password, "height 45px, width 60%, gap left 20%, gap bottom 25px");
         background.add(signIn, "width 30%, height 35px, gap left 35%");
-        background.add(signUp, "width 30%, height 35px, gap left 35%, gap top 5px");
         background.setConstraints(25, "all");
         background.setBackground(white);
 
@@ -68,7 +65,7 @@ public class LogIn extends JFrame {
         setUndecorated(true);
         setResizable(false);
         setFont(new Font("sanserif", Font.PLAIN, 16));
-        setSize(new Dimension(600, 350));
+        setSize(new Dimension(600, 320));
         setBackground(new Color(0xffffff, true));
         setLocationRelativeTo(null);
     }
@@ -82,11 +79,6 @@ public class LogIn extends JFrame {
                 .and(isPasswordEmpty)
                 .apply(user);
         checkCredentials(result, displayError);
-    }
-
-    private void registrationAction(ActionEvent event) {
-        //
-        dispose();
     }
 
     private void checkCredentials(ValidationResults result, Consumer<ValidationResults> showUserError) {
