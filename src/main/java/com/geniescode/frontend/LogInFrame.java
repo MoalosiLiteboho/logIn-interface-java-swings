@@ -1,29 +1,26 @@
-package com.geniescode.frontend;
+package com.geniescode.logIn;
 
-import com.geniescode.frontend.components.Button;
-import com.geniescode.frontend.components.ClosingBar;
-import com.geniescode.frontend.components.Panel;
-import com.geniescode.frontend.components.PasswordField;
-import com.geniescode.frontend.components.TextField;
-import com.geniescode.backend.LogInController;
+import com.geniescode.components.*;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.util.function.Consumer;
 
+import static com.geniescode.logIn.LogInValidation.isPasswordEmpty;
+import static com.geniescode.logIn.LogInValidation.isUsernameEmpty;
+import static com.geniescode.logIn.ValidationResults.SUCCESS;
 import static java.awt.Color.green;
 import static java.awt.Color.white;
 
-public class LogInFrame extends JFrame {
-    private TextField username;
-    private PasswordField password;
-    private Button signIn;
-
-    public LogInFrame() {
+public class LogIn extends JFrame {
+    public LogIn() {
         initComponents();
     }
 
@@ -33,11 +30,18 @@ public class LogInFrame extends JFrame {
         JLabel tittle = new JLabel();
         username = new TextField("Username:");
         password = new PasswordField("Password:");
-        signIn = new Button();
+        Button signIn = new Button();
+        Button signUp = new Button();
+
+        signUp.setText("Registration");
+        signUp.setConstraints(green, 40);
+        signUp.setFont(signUp.getFont().deriveFont(Font.PLAIN, 18));
+        signUp.addActionListener(this::registrationAction);
 
         signIn.setText("LogIn");
         signIn.setConstraints(green, 40);
         signIn.setFont(signIn.getFont().deriveFont(Font.PLAIN, 18));
+        signIn.addActionListener(this::logInAction);
 
         password.setBackground(white);
 
@@ -52,8 +56,9 @@ public class LogInFrame extends JFrame {
         background.add(closeButton, "width 100%");
         background.add(tittle, "width 100%, gap bottom 30px");
         background.add(username, "height 45px, width 60%, gap left 20%, gap bottom 5px");
-        background.add(password, "height 45px, width 60%, gap left 20%, gap bottom 25px");
+        background.add(password, "height 45px, width 60%, gap left 20%, gap bottom 20px");
         background.add(signIn, "width 30%, height 35px, gap left 35%");
+        background.add(signUp, "width 30%, height 35px, gap left 35%, gap top 5px");
         background.setConstraints(25, "all");
         background.setBackground(white);
 
@@ -63,31 +68,34 @@ public class LogInFrame extends JFrame {
         setUndecorated(true);
         setResizable(false);
         setFont(new Font("sanserif", Font.PLAIN, 16));
-        setSize(new Dimension(600, 320));
+        setSize(new Dimension(600, 350));
         setBackground(new Color(0xffffff, true));
         setLocationRelativeTo(null);
-        addController(this);
     }
 
-    private void addController(LogInFrame logInFrame) {
-        new LogInController(logInFrame);
+    private void logInAction(ActionEvent event) {
+        logInProcess(new UserCredentials(username.getName(), String.valueOf(password.getPassword())));
     }
 
-    public void addButtonListener(LogInController controller) {
-        signIn.addActionListener(controller);
+    public void logInProcess(UserCredentials user) {
+        ValidationResults result = isUsernameEmpty
+                .and(isPasswordEmpty)
+                .apply(user);
+        checkCredentials(result, displayError);
     }
 
-    public Button getSignIn() {
-        return signIn;
+    private void registrationAction(ActionEvent event) {
+        //
+        dispose();
     }
 
-    public String getUsername() {
-        return username.toString();
+    private void checkCredentials(ValidationResults result, Consumer<ValidationResults> showUserError) {
+        if(!SUCCESS.equals(result)) showUserError.accept(result);
+        else System.out.println(result);
     }
 
-    public String getPassword() {
-        return String.valueOf(
-                password.getPassword()
-        );
-    }
+    private final Consumer<ValidationResults> displayError = error -> JOptionPane.showMessageDialog(null, error);
+
+    private TextField username;
+    private PasswordField password;
 }
