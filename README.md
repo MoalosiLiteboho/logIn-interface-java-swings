@@ -4,5 +4,13 @@
 * Easy usability
 
 ## Interface for LogIn
-![Screenshot from 2023-02-24 14-19-53](https://user-images.githubusercontent.com/112495633/221181024-bc3741a3-3f99-403d-9c80-68286ccf7f1e.png)
-![Screenshot from 2023-02-24 14-45-42](https://user-images.githubusercontent.com/112495633/221182282-a0d54a22-eeef-4b07-9ac7-3f1df4bf0138.png)
+![Screenshot from 2023-05-15 11-30-27](https://github.com/MoalosiLiteboho/logIn-and-registration-interface/assets/112495633/44ce0390-468f-4162-aa3c-18662801c5af)
+
+![Screenshot from 2023-05-15 11-30-20](https://github.com/MoalosiLiteboho/logIn-and-registration-interface/assets/112495633/efd299b5-4d66-46d6-bcb8-a2f7090737e1)
+
+![Screenshot from 2023-05-15 11-28-47](https://github.com/MoalosiLiteboho/logIn-and-registration-interface/assets/112495633/d8f65bff-e37c-4176-991c-8751f474fa1b)
+
+![Screenshot from 2023-05-15 11-28-25](https://github.com/MoalosiLiteboho/logIn-and-registration-interface/assets/112495633/d3f2b647-0893-4237-8983-152a89d96f43)
+
+
+![Screenshot from 2023-05-15 11-28-18](https://github.com/MoalosiLiteboho/logIn-and-registration-interface/assets/112495633/bc16691b-a18c-406c-8db9-9d896f260356)
