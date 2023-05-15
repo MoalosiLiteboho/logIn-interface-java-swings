@@ -1,4 +1,4 @@
-package com.geniescode.components;
+package com.geniescode.frontend.components;
 
 import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;

@@ -1,4 +1,4 @@
-package com.geniescode.components;
+package com.geniescode.frontend.components;
 
 import javax.swing.JPanel;
 import java.awt.Graphics;
