@@ -1,4 +1,4 @@
-package com.geniescode.backend;
+package com.geniescode.backend.logIn;
 
 import com.geniescode.frontend.LogInFrame;
 

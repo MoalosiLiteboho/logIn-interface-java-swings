@@ -1,10 +1,10 @@
-package com.geniescode.backend;
+package com.geniescode.backend.logIn;
 
 import java.util.function.Function;
 
-import static com.geniescode.backend.ValidationResults.PASSWORD_EMPTY;
-import static com.geniescode.backend.ValidationResults.SUCCESS;
-import static com.geniescode.backend.ValidationResults.USERNAME_EMPTY;
+import static com.geniescode.backend.logIn.ValidationResults.PASSWORD_EMPTY;
+import static com.geniescode.backend.logIn.ValidationResults.SUCCESS;
+import static com.geniescode.backend.logIn.ValidationResults.USERNAME_EMPTY;
 
 
 public interface LogInValidation extends Function<LogIn, String> {

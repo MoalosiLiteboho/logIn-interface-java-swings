@@ -1,4 +1,4 @@
-package com.geniescode.backend;
+package com.geniescode.backend.logIn;
 
 public enum ValidationResults {
     SUCCESS("SUCCESS"),

@@ -1,6 +1,6 @@
 package com.geniescode.frontend;
 
-import com.geniescode.backend.LogInController;
+import com.geniescode.backend.logIn.LogInController;
 import com.geniescode.frontend.components.Button;
 import com.geniescode.frontend.components.ClosingBar;
 import com.geniescode.frontend.components.Panel;
